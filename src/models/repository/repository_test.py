@@ -49,3 +49,25 @@ def test_select_one():
     response = orders_repository.select_one(doc_filter)
     print()
     print(response)
+
+
+@pytest.mark.skip(reason="interacao com o banco")
+def test_select_many_with_properties():
+    orders_repository = OrdersRepository(conn)
+    doc_filter = { "cupom": True }
+    response = orders_repository.select_many_with_properties(doc_filter)
+    print()
+    for doc in response:
+        print(doc)
+        print()
+
+
+@pytest.mark.skip(reason="interacao com o banco")
+def test_select_if_property_exists():
+    orders_repository = OrdersRepository(conn)
+    response = orders_repository.select_if_property_exists()
+    print()
+    print(response)
+    for doc in response:
+        print(doc)
+        print()
